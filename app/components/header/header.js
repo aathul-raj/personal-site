@@ -4,7 +4,6 @@ import useSmoothScroll from '@/app/hooks/smoothScroll';
 import useWindowSize from '@/app/hooks/windowSize';
 import { motion, useScroll, useTransform, useAnimation } from 'framer-motion';
 import styles from './header.module.css';
-import Moon from "../../../public/moon.png"
 import Image from "next/image";
 
 export default function Header(){
