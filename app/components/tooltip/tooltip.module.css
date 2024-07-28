@@ -1,0 +1,47 @@
+.tooltipContainer {
+    position: relative;
+    display: inline-block;
+}
+  
+.tooltip {
+    position: absolute;
+    background-color: #FFFFFF;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    z-index: 1000;
+    width: 200px;
+    pointer-events: none;
+    box-shadow: 
+        0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transform: translate(10px, -50%);
+}
+  
+.tooltip h3 {
+    margin: 0 0 5px;
+    font-size: 14px;
+    font-weight: 500;
+}
+  
+.tooltip ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.tooltip li {
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+  
+@media (max-width: 768px) {
+    .tooltip {
+      position: fixed;
+      top: auto !important;
+      left: 50% !important;
+      bottom: 20px;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 300px;
+    }
+}
