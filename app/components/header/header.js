@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import useSmoothScroll from '@/app/hooks/smoothScroll';
 import useWindowSize from '@/app/hooks/windowSize';
 import { motion, useScroll, useTransform, useAnimation } from 'framer-motion';
@@ -7,13 +7,14 @@ import styles from './header.module.css';
 import Image from "next/image";
 
 export default function Header(){
+    const [activeSection, setActiveSection] = useState('landing');
     const { scrollY } = useScroll();
     const controls = useAnimation();
     const { width } = useWindowSize();
     useSmoothScroll(250, 1500);
 
     const headerScroll = width > 768 ? [840, 841] : [520, 521]
-    const headerWidthVals = width > 768 ? ['62vw', '45vw'] : ['80vw', '88vw']
+    const headerWidthVals = width > 768 ? ['78vw', '50vw'] : ['80vw', '88vw']
 
     const headerWidth = useTransform(
         scrollY,
@@ -36,7 +37,31 @@ export default function Header(){
                 ease: "easeInOut",
             }
         });
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.5,
+        };
+
+        const observerCallback = (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveSection(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        const sections = document.querySelectorAll('#landing, #about, #fs-works, #ai-works, #footer');
+        sections.forEach((section) => observer.observe(section));
+
+        return () => {
+            sections.forEach((section) => observer.unobserve(section));
+        };
     }, [controls]);
+
     return (
         <motion.header 
             className={styles.header}
@@ -71,11 +96,21 @@ export default function Header(){
             </div>
             <nav className={styles.navContainer}>
                 <ul>
-                    <li className={styles.headerItem}><a href="#about">story</a></li>
-                    <li className={styles.headerItem}><a href="#fs-works">full stack works</a></li>
-                    <li className={styles.headerItem}><a href="#ai-works">ai works</a></li>
-                    <li className={styles.headerItem}><a href="#footer">connect</a></li>
-                    <li className={styles.headerContact}><a href="mailto:athulrsuresh@gmail.com" target="_blank">say &ldquo;hi&ldquo;</a></li>
+                    <li className={`${styles.headerItem} ${activeSection === 'about' ? styles.active : ''}`}>
+                        <a href="#about">story</a>
+                    </li>
+                    <li className={`${styles.headerItem} ${activeSection === 'fs-works' ? styles.active : ''}`}>
+                        <a href="#fs-works">full stack</a>
+                    </li>
+                    <li className={`${styles.headerItem} ${activeSection === 'ai-works' ? styles.active : ''}`}>
+                        <a href="#ai-works">ai</a>
+                    </li>
+                    <li className={`${styles.headerItem} ${activeSection === 'footer' ? styles.active : ''}`}>
+                        <a href="#footer">connect</a>
+                    </li>
+                    <li className={styles.headerContact}>
+                        <a href="mailto:athulrsuresh@gmail.com" target="_blank">say &ldquo;hi&ldquo;</a>
+                    </li>
                 </ul>
             </nav>
         </motion.header>

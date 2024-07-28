@@ -27,23 +27,27 @@ export default function Home() {
   const [isBrowser, setIsBrowser] = useState(false);
   const { width } = useWindowSize();
 
-  const aiX = useTransform(scrollY, [0, 500], [0, -1000]);
+  const aiX = useTransform(scrollY, [0, 500], [0, -1200]);
   const aiY = useTransform(scrollY, [0, 500], [0, -500]);
-  const aiRotate = useTransform(scrollY, [0, 500], [20, 100]);
+  const aiYMobile = useTransform(scrollY, [0, 500], [0, -200]);
+  const aiRotate = useTransform(scrollY, [0, 500], [20, 300]);
 
-  const builderX = useTransform(scrollY, [0, 500], [0, 1000]);
+  const builderX = useTransform(scrollY, [0, 500], [0, 1200]);
   const builderY = useTransform(scrollY, [0, 500], [0, -250]);
-  const builderYMobile = useTransform(scrollY, [0, 500], [0, -50]);
+  const builderYMobile = useTransform(scrollY, [0, 800], [0, -50]);
   const builderRotate = useTransform(scrollY, [0, 500], [-20, -90]);
   const builderRotateMobile = useTransform(scrollY, [0, 500], [-20, -200]);
 
   const websitesX = useTransform(scrollY, [0, 500], [0, -350]);
-  const websitesY = useTransform(scrollY, [0, 500], [0, -650]);
-  const websitesRotate = useTransform(scrollY, [0, 500], [5, -60]);
+  const websitesXMobile = useTransform(scrollY, [0, 500], [0, -550]);
+  const websitesY = useTransform(scrollY, [0, 500], [0, -750]);
+  const websitesRotate = useTransform(scrollY, [0, 500], [5, -150]);
 
-  const researchX = useTransform(scrollY, [0, 500], [0, 1000]);
+  const researchX = useTransform(scrollY, [0, 800], [0, 1000]);
   const researchY = useTransform(scrollY, [0, 500], [0, -700]);
+  const researchYMobile = useTransform(scrollY, [0, 500], [0, -1000]);
   const researchRotate = useTransform(scrollY, [0, 500], [-10, 75]);
+  const researchRotateMobile = useTransform(scrollY, [0, 500], [-10, 250]);
 
   useEffect(() => {
     setIsBrowser(true);
@@ -52,7 +56,7 @@ export default function Home() {
   const topicAnimations = {
     ai: {
       x: aiX,
-      y: aiY,
+      y: width > 768 ? aiY : aiYMobile,
       rotate: aiRotate,
     },
     builder: {
@@ -61,14 +65,14 @@ export default function Home() {
       rotate: width > 768 ? builderRotate : builderRotateMobile,
     },
     websites: {
-      x: websitesX,
+      x: width > 768 ? websitesX : websitesXMobile,
       y: websitesY,
       rotate: websitesRotate,
     },
     research: {
       x: researchX,
-      y: researchY,
-      rotate: researchRotate,
+      y: width > 768 ? researchY : researchYMobile,
+      rotate: width > 768 ? researchRotate : researchRotateMobile,
     },
   };
 
@@ -78,12 +82,12 @@ export default function Home() {
   return (
     <>
       <div className={styles.landingContainer}>
-        <div className={styles.heroSection}>
+        <div className={styles.heroSection} id="landing">
           <Header/>
           <div className={styles.landingSpacer}></div>
           <div className={styles.landingContent}>
             <div className={styles.landingSubContainer}>
-              <Image src={Wave.src} width={30} height={30} alt="Wave Icon"/>
+              <Image src={Wave.src} width={30} height={30} alt="Wave Icon" className={styles.waveIcon}/>
               <h2>hey, i’m athul, a junior at tamu and currently...</h2>
             </div>
             { width > 768 ? <h1>building products and <br/>experiences to shape<br/> the world</h1> : <h1>building products and experiences to shape the world</h1>}
@@ -168,7 +172,7 @@ export default function Home() {
       </div>
 
       <div className={styles.portfolioContainer} id="fs-works">
-        <h1>my top three most impressive (full-stack) works:</h1>
+      {width > 768 ?  <h1>my top three most impressive (full-stack) works:</h1> :  <h1>my top three most impressive <br/>(full-stack) works:</h1>}
         <div className={styles.portfolio}>
           <div className={styles.portfolioItem}>
             <p><a className={styles.hoverGreen} href="https://old.preptify.com/" target="_blank">preptify</a> - my startup, where i was the technical cofounder. it&apos;s an ai-powered mock interview assistant that 
@@ -178,7 +182,7 @@ export default function Home() {
 
           <div className={styles.portfolioItem}>
             <p><a className={styles.hoverPink} href="https://emily-archive.vercel.app/" target="_blank">emily&apos;s archive</a> - a blog for my girlfriend. built the whole cms for this from scratch. articles, images, the works.</p>
-            <p className={styles.builtWith}>built with: next.js, node, postgresql, firebase, and slate for the text editor.</p>
+            <p className={styles.builtWith}>built with: next.js, node, postgresql, firebase, and slate.</p>
           </div>
 
           <div className={styles.portfolioItem}>
