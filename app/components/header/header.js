@@ -11,10 +11,14 @@ export default function Header(){
     const controls = useAnimation();
     const { width } = useWindowSize();
     useSmoothScroll(250, 1500);
+
+    const headerScroll = width > 768 ? [840, 841] : [590, 591]
+    const headerWidthVals = width > 768 ? ['62vw', '45vw'] : ['80vw', '88vw']
+
     const headerWidth = useTransform(
         scrollY,
-        width > 768 ? [840, 841] : [590, 591], // Scroll values
-        width > 768 ? ['62vw', '45vw'] : ['80vw', '88vw']
+        headerScroll,
+        headerWidthVals
     );
 
     const logoAnimationConfig = {

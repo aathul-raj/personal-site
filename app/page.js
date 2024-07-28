@@ -27,30 +27,48 @@ export default function Home() {
   const [isBrowser, setIsBrowser] = useState(false);
   const { width } = useWindowSize();
 
+  const aiX = useTransform(scrollY, [0, 500], [0, -1000]);
+  const aiY = useTransform(scrollY, [0, 500], [0, -500]);
+  const aiRotate = useTransform(scrollY, [0, 500], [20, 100]);
+
+  const builderX = useTransform(scrollY, [0, 500], [0, 1000]);
+  const builderY = useTransform(scrollY, [0, 500], [0, -250]);
+  const builderYMobile = useTransform(scrollY, [0, 500], [0, -50]);
+  const builderRotate = useTransform(scrollY, [0, 500], [-20, -90]);
+  const builderRotateMobile = useTransform(scrollY, [0, 500], [-20, -200]);
+
+  const websitesX = useTransform(scrollY, [0, 500], [0, -350]);
+  const websitesY = useTransform(scrollY, [0, 500], [0, -650]);
+  const websitesRotate = useTransform(scrollY, [0, 500], [5, -60]);
+
+  const researchX = useTransform(scrollY, [0, 500], [0, 1000]);
+  const researchY = useTransform(scrollY, [0, 500], [0, -700]);
+  const researchRotate = useTransform(scrollY, [0, 500], [-10, 75]);
+
   useEffect(() => {
     setIsBrowser(true);
   }, []);
 
   const topicAnimations = {
     ai: {
-      x: useTransform(scrollY, [0, 500], [0, -1000]),
-      y: useTransform(scrollY, [0, 500], [0, -500]),
-      rotate: useTransform(scrollY, [0, 500], [20, 100]),
+      x: aiX,
+      y: aiY,
+      rotate: aiRotate,
     },
     builder: {
-      x: useTransform(scrollY, [0, 500], [0, 1000]),
-      y: width > 768 ? useTransform(scrollY, [0, 500], [0, -250]) : useTransform(scrollY, [0, 500], [0, -50]),
-      rotate: width > 768 ? useTransform(scrollY, [0, 500], [-20, -90]) : useTransform(scrollY, [0, 500], [-20, -200]),
+      x: builderX,
+      y: width > 768 ? builderY : builderYMobile,
+      rotate: width > 768 ? builderRotate : builderRotateMobile,
     },
     websites: {
-      x: useTransform(scrollY, [0, 500], [0, -350]),
-      y: useTransform(scrollY, [0, 500], [0, -650]),
-      rotate: useTransform(scrollY, [0, 500], [5, -60]),
+      x: websitesX,
+      y: websitesY,
+      rotate: websitesRotate,
     },
     research: {
-      x: useTransform(scrollY, [0, 500], [0, 1000]),
-      y: useTransform(scrollY, [0, 500], [0, -700]),
-      rotate: useTransform(scrollY, [0, 500], [-10, 75]),
+      x: researchX,
+      y: researchY,
+      rotate: researchRotate,
     },
   };
 
@@ -65,7 +83,7 @@ export default function Home() {
           <div className={styles.landingSpacer}></div>
           <div className={styles.landingContent}>
             <div className={styles.landingSubContainer}>
-              <Image src={Wave.src} width={30} height={30}/>
+              <Image src={Wave.src} width={30} height={30} alt="Wave Icon"/>
               <h2>hey, i’m athul, a junior at tamu and currently...</h2>
             </div>
             { width > 768 ? <h1>building products and <br/>experiences to shape<br/> the world</h1> : <h1>building products and experiences to shape the world</h1>}
@@ -80,7 +98,7 @@ export default function Home() {
                   rotate: topicAnimations.ai.rotate
                 }}
               >
-                <Image src={AI.src} width={iconWidth} height={iconHeight}/>
+                <Image src={AI.src} width={iconWidth} height={iconHeight} alt="Topic"/>
                 <h1>ai</h1>
               </motion.div>
               <motion.div 
@@ -91,7 +109,7 @@ export default function Home() {
                   rotate: topicAnimations.builder.rotate
                 }}
               >
-                <Image src={Builder.src} width={iconWidth} height={iconHeight}/>
+                <Image src={Builder.src} width={iconWidth} height={iconHeight} alt="Topic"/>
                 <h1>builder</h1>
               </motion.div>
               <motion.div 
@@ -102,7 +120,7 @@ export default function Home() {
                   rotate: topicAnimations.websites.rotate
                 }}
               >
-                <Image src={Websites.src} width={iconWidth} height={iconHeight}/>
+                <Image src={Websites.src} width={iconWidth} height={iconHeight} alt="Topic"/>
                 <h1>websites</h1>
               </motion.div>
               <motion.div 
@@ -113,7 +131,7 @@ export default function Home() {
                   rotate: topicAnimations.research.rotate
                 }}
               >
-                <Image src={Research.src} width={iconWidth} height={iconHeight}/>
+                <Image src={Research.src} width={iconWidth} height={iconHeight} alt="Topic"/>
                 <h1>research</h1>
               </motion.div>
             </>
@@ -123,7 +141,7 @@ export default function Home() {
 
       <div className={styles.aboutContainer} id="about">
         <div className={styles.aboutSubContainer}>
-          <Image src={M2.src} width={415} height={348} className={styles.pfpImage}/>
+          <Image src={M2.src} width={415} height={348} className={styles.pfpImage} alt="PFP"/>
           <div className={styles.aboutContent}>
             <h1>
               born in kerala, in.<br/>
@@ -153,13 +171,13 @@ export default function Home() {
         <h1>my top three most impressive (full-stack) works:</h1>
         <div className={styles.portfolio}>
           <div className={styles.portfolioItem}>
-            <p><a className={styles.hoverGreen} href="https://old.preptify.com/" target="_blank">preptify</a> - my startup, where i was the technical cofounder. it's an ai-powered mock interview assistant that 
+            <p><a className={styles.hoverGreen} href="https://old.preptify.com/" target="_blank">preptify</a> - my startup, where i was the technical cofounder. it&apos;s an ai-powered mock interview assistant that 
             tracks your performance and gives personalized feedback. i was responsible for building the whole product.</p>
             <p className={styles.builtWith}>built with: react, node, firebase, aws, gpt, figma, deepgram, and stripe.</p>
           </div>
 
           <div className={styles.portfolioItem}>
-            <p><a className={styles.hoverPink} href="https://emily-archive.vercel.app/" target="_blank">emily's archive</a> - a blog for my girlfriend. built the whole cms for this from scratch. articles, images, the works.</p>
+            <p><a className={styles.hoverPink} href="https://emily-archive.vercel.app/" target="_blank">emily&apos;s archive</a> - a blog for my girlfriend. built the whole cms for this from scratch. articles, images, the works.</p>
             <p className={styles.builtWith}>built with: next.js, node, postgresql, firebase, and slate for the text editor.</p>
           </div>
 
@@ -186,7 +204,7 @@ export default function Home() {
           </div>
 
           <div className={styles.portfolioItem}>
-            <p><a className={styles.hoverBrown}>autograd</a> - replica of karpathy's. improved to score upwards of 97% on mnist from scratch, no tensor libraries.
+            <p><a className={styles.hoverBrown}>autograd</a> - replica of karpathy&apos;s. improved to score upwards of 97% on mnist from scratch, no tensor libraries.
             </p>
             <p className={styles.builtWith}>built with: python.</p>
           </div>
@@ -201,7 +219,7 @@ export default function Home() {
               <h1>reach out!</h1>
               <button><a href="mailto:athulrsuresh@gmail.com" target="_blank">get in touch</a></button>
             </div>
-            <Image src={Smiley.src} height={150} width={150} className={styles.footerImage}/>
+            <Image src={Smiley.src} height={150} width={150} className={styles.footerImage} alt="Smiley"/>
           </div>
           <div className={styles.footerSpacer}></div>
           <div className={styles.footerRowTwo}>
