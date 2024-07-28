@@ -75,7 +75,7 @@ export default function Header(){
                     <li className={styles.headerItem}><a href="#fs-works">full stack works</a></li>
                     <li className={styles.headerItem}><a href="#ai-works">ai works</a></li>
                     <li className={styles.headerItem}><a href="#footer">connect</a></li>
-                    <li className={styles.headerContact}><a href="mailto:athulrsuresh@gmail.com" target="_blank">say "hi"</a></li>
+                    <li className={styles.headerContact}><a href="mailto:athulrsuresh@gmail.com" target="_blank">say &ldquo;hi&ldquo;</a></li>
                 </ul>
             </nav>
         </motion.header>
