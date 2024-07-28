@@ -12,7 +12,7 @@ export default function Header(){
     const { width } = useWindowSize();
     useSmoothScroll(250, 1500);
 
-    const headerScroll = width > 768 ? [840, 841] : [590, 591]
+    const headerScroll = width > 768 ? [840, 841] : [520, 521]
     const headerWidthVals = width > 768 ? ['62vw', '45vw'] : ['80vw', '88vw']
 
     const headerWidth = useTransform(
