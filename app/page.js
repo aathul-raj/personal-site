@@ -186,7 +186,7 @@ export default function Home() {
           </div>
 
           <div className={styles.portfolioItem}>
-            <p><a className={styles.hoverRed} href="https://prof-rec.vercel.app/" target="_blank">aggie prof rec</a> - backend dev for this tamu prof-comparing site. slashed query times from {'>'}30 seconds when i joined to milliseconds by building a 
+            <p><a className={styles.hoverRed} href="https://prof-rec.vercel.app/" target="_blank">aggie prof rec</a> - backend dev for this tamu prof-comparing site. when i joined, slashed query times from {'>'}30 seconds to milliseconds by building a 
             massive database of tamu profs, courses, and stats.
             </p>
             <p className={styles.builtWith}>built with: next.js, flask, selenium, cron, and postgresql.</p>
