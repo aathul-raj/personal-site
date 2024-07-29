@@ -394,7 +394,9 @@ footer.footer .footerWrapper .footerRowTwo h1:hover{
     margin-left: .25rem;
     font-size: 1.2rem;
   }
+}
 
+@media (max-width: 768px){
   .footerWrapper {
     width: 90vw;
   }
