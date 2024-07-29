@@ -7,10 +7,10 @@ import useWindowSize from "./hooks/windowSize";
 import styles from "./page.module.css";
 import Header from "./components/header/header";
 import Wave from "../public/wave.png"
-import Research from "../public/research.png"
-import Websites from "../public/websites.png"
-import Builder from "../public/builder.png"
-import AI from "../public/ai.png"
+import Research from "../public/research.svg"
+import Websites from "../public/websites.svg"
+import Builder from "../public/builder.svg"
+import AI from "../public/ai.svg"
 import Smiley from "../public/smiley.png"
 import M2 from "../public/memoji_two.svg"
 import { config } from "@fortawesome/fontawesome-svg-core";
