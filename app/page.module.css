@@ -324,6 +324,21 @@ footer.footer .footerWrapper .footerRowTwo h1:hover{
   transform: rotate(-8deg);
 }
 
+.credits{
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 2rem;
+}
+
+.credits p{
+  margin: 0;
+  margin-bottom: 1rem;
+  color: black;
+}
+
 @media (max-width: 1200px){
   .heroSection{
     margin-top: 1rem;
@@ -456,6 +471,15 @@ footer.footer .footerWrapper .footerRowTwo h1:hover{
     font-size: 1rem;
     margin-right: 1rem;
     margin-bottom: 1rem;
+  }
+
+  .credits{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .credits p{
+    margin-left: 1rem;
   }
 }
 

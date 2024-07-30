@@ -28,8 +28,8 @@ export default function Home() {
   const { width } = useWindowSize();
 
   const smoothScrollY = useSpring(scrollY, {
-    stiffness: 200,
-    damping: 50,
+    stiffness: 275,
+    damping: 30,
     restDelta: 0.001
   });
 
@@ -248,6 +248,10 @@ export default function Home() {
                   <FontAwesomeIcon icon={faXTwitter} size="2x" />
                 </a>
             </div>
+          </div>
+          <div className={styles.credits}>
+            <p>made with ❤️ in atx</p>
+            {width > 768 ? <p>design inspo credits: daniel sun</p> : <p>design inspo credits:<br/>daniel sun</p>}
           </div>
         </div>
       </footer>
