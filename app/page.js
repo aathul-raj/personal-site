@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import useWindowSize from "./hooks/windowSize";
 import styles from "./page.module.css";
@@ -17,7 +17,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin, faXTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import ScrollToTopButton from "./components/scrollButton/button";
 
 config.autoAddCss = false;
 
@@ -27,27 +27,33 @@ export default function Home() {
   const [isBrowser, setIsBrowser] = useState(false);
   const { width } = useWindowSize();
 
-  const aiX = useTransform(scrollY, [0, 500], [0, -1200]);
-  const aiY = useTransform(scrollY, [0, 500], [0, -500]);
-  const aiYMobile = useTransform(scrollY, [0, 500], [0, -200]);
-  const aiRotate = useTransform(scrollY, [0, 500], [20, 300]);
+  const smoothScrollY = useSpring(scrollY, {
+    stiffness: 200,
+    damping: 50,
+    restDelta: 0.001
+  });
 
-  const builderX = useTransform(scrollY, [0, 500], [0, 1200]);
-  const builderY = useTransform(scrollY, [0, 500], [0, -250]);
-  const builderYMobile = useTransform(scrollY, [0, 800], [0, -50]);
-  const builderRotate = useTransform(scrollY, [0, 500], [-20, -90]);
-  const builderRotateMobile = useTransform(scrollY, [0, 500], [-20, -200]);
+  const aiX = useTransform(smoothScrollY, [0, 500], [0, -1200]);
+  const aiY = useTransform(smoothScrollY, [0, 500], [0, -500]);
+  const aiYMobile = useTransform(smoothScrollY, [0, 500], [0, -200]);
+  const aiRotate = useTransform(smoothScrollY, [0, 500], [20, 300]);
 
-  const websitesX = useTransform(scrollY, [0, 500], [0, -350]);
-  const websitesXMobile = useTransform(scrollY, [0, 500], [0, -550]);
-  const websitesY = useTransform(scrollY, [0, 500], [0, -750]);
-  const websitesRotate = useTransform(scrollY, [0, 500], [5, -150]);
+  const builderX = useTransform(smoothScrollY, [0, 500], [0, 1200]);
+  const builderY = useTransform(smoothScrollY, [0, 500], [0, -250]);
+  const builderYMobile = useTransform(smoothScrollY, [0, 800], [0, -50]);
+  const builderRotate = useTransform(smoothScrollY, [0, 500], [-20, -90]);
+  const builderRotateMobile = useTransform(smoothScrollY, [0, 500], [-20, -200]);
 
-  const researchX = useTransform(scrollY, [0, 800], [0, 1000]);
-  const researchY = useTransform(scrollY, [0, 500], [0, -700]);
-  const researchYMobile = useTransform(scrollY, [0, 500], [0, -1000]);
-  const researchRotate = useTransform(scrollY, [0, 500], [-10, 75]);
-  const researchRotateMobile = useTransform(scrollY, [0, 500], [-10, 250]);
+  const websitesX = useTransform(smoothScrollY, [0, 500], [0, -350]);
+  const websitesXMobile = useTransform(smoothScrollY, [0, 500], [0, -550]);
+  const websitesY = useTransform(smoothScrollY, [0, 500], [0, -750]);
+  const websitesRotate = useTransform(smoothScrollY, [0, 500], [5, -150]);
+
+  const researchX = useTransform(smoothScrollY, [0, 800], [0, 1000]);
+  const researchY = useTransform(smoothScrollY, [0, 500], [0, -700]);
+  const researchYMobile = useTransform(smoothScrollY, [0, 500], [0, -1000]);
+  const researchRotate = useTransform(smoothScrollY, [0, 500], [-10, 75]);
+  const researchRotateMobile = useTransform(smoothScrollY, [0, 500], [-10, 250]);
 
   useEffect(() => {
     setIsBrowser(true);
@@ -90,7 +96,7 @@ export default function Home() {
               <Image src={Wave.src} width={30} height={30} alt="Wave Icon" className={styles.waveIcon}/>
               <h2>hey, i’m athul, a junior at tamu and currently...</h2>
             </div>
-            { width > 768 ? <h1>building products and <br/>experiences to shape<br/> the world</h1> : <h1>building products and experiences to shape the world</h1>}
+            { width > 768 ? <h1>building bridges<br/>between wild ideas<br/>and innovative tech</h1> : <h1>building bridges between wild ideas + innovative tech</h1>}
           </div>
           {isBrowser && (
             <>
@@ -245,6 +251,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <ScrollToTopButton />
     </>
   );
 }
