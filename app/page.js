@@ -204,17 +204,17 @@ export default function Home() {
        {width > 768 ?  <h1>three more impressive (ai) works:</h1> :  <h1>three more <br/>impressive (ai) works:</h1>}
         <div className={styles.portfolio}>
           <div className={styles.portfolioItem}>
-            <p><a className={styles.hoverBlue}>alphazero tictactoe</a> - replicated alphazero paper but for tictactoe because i dont have google researcher level compute (@google tryna change that???).</p>
+            <p><a className={styles.hoverBlue} href="https://github.com/aathul-raj/alphazero" target="_blank">alphazero tictactoe</a> - replicated alphazero paper but for tictactoe because i dont have google researcher level compute (@google tryna change that???).</p>
             <p className={styles.builtWith}>built with: tensorflow.</p>
           </div>
 
           <div className={styles.portfolioItem}>
-            <p><a className={styles.hoverPurple}>agentic ai assistant</a> - needs a better name. proactive gpt based voice assistant that can handle multiple complex queries at once, roughly siri level latency.</p>
+            <p><a className={styles.hoverPurple} href="https://github.com/aathul-raj/agentic-assistant" target="_blank">agentic ai assistant</a> - needs a better name. proactive gpt based voice assistant that can handle multiple complex queries at once, roughly siri level latency.</p>
             <p className={styles.builtWith}>built with: python, gpt, whisper, elevenlabs.</p>
           </div>
 
           <div className={styles.portfolioItem}>
-            <p><a className={styles.hoverBrown}>autograd</a> - replica of karpathy&apos;s. improved to score upwards of 97% on mnist from scratch, no tensor libraries.
+            <p><a className={styles.hoverBrown} href="https://github.com/aathul-raj/feedforward-network" target="_blank">neural net from scratch</a> - built a high-performance neural network library achieving 99% accuracy on MNIST. based off of micheal nielsen&apos;s book. no tensor libraries, just python.
             </p>
             <p className={styles.builtWith}>built with: python.</p>
           </div>
