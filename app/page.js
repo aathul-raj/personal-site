@@ -174,7 +174,7 @@ export default function Home() {
             </h1>
           </div>
         </div>
-        <h1 className={styles.aboutSubText}><a href="https://drive.google.com/file/d/1pfaaVzePuiVLUnl1gn5NwFL2Gmk3h_38/view?usp=sharing" target="_blank">wanna learn more? take a look at my resume.</a></h1>
+        <h1 className={styles.aboutSubText}><a href="https://drive.google.com/file/d/136atZq6yDMaYY81YRecr15Z5bBTnwZaN/view?usp=sharing" target="_blank">wanna learn more? take a look at my resume.</a></h1>
       </div>
 
       <div className={styles.portfolioContainer} id="fs-works">
