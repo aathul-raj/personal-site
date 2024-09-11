@@ -160,7 +160,7 @@ export default function Home() {
 
             <h1>
             applied maths + comp sci @ tamu.<br/>
-            tamu formula electric comp sci.
+            tamu formula electric software lead.
             </h1>
 
             <h1>
