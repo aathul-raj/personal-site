@@ -94,7 +94,7 @@ export default function Home() {
           <div className={styles.landingContent}>
             <div className={styles.landingSubContainer}>
               <Image src={Wave.src} width={30} height={30} alt="Wave Icon" className={styles.waveIcon}/>
-              <h2>hey, i’m athul, a junior at tamu and currently...</h2>
+              <h2>hey, i’m athul, a junior at tamu and currently...dev</h2>
             </div>
             { width > 768 ? <h1>building bridges<br/>between wild ideas<br/>and innovative tech</h1> : <h1>building bridges between wild ideas + innovative tech</h1>}
           </div>
