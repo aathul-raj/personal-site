@@ -175,6 +175,7 @@ export default function Home() {
           </div>
         </div>
         <h1 className={styles.aboutSubText}><a href="https://drive.google.com/file/d/186gt3oK0TV9alF2lGKlufRVoIWuIvX_j/view?usp=sharing" target="_blank">wanna learn more? take a look at my resume.</a></h1>
+        <h1 className={styles.aboutRecText}><a href="https://drive.google.com/file/d/1IuyFQJjW_HXr5k0g1dxO6wszc_fLCnM3/view?usp=sharing" target="_blank">or, here&apos;s a letter of rec from my former manager at retailmenot.</a></h1>
       </div>
 
       <div className={styles.portfolioContainer} id="fs-works">

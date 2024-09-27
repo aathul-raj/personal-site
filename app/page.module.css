@@ -117,7 +117,7 @@
   align-items: center;
 }
 
-.aboutContainer h1.aboutSubText{
+.aboutContainer h1.aboutSubText, h1.aboutRecText{
   margin-top: 5rem;
   font-size: 1.25rem;
   font-weight: normal;
@@ -125,7 +125,11 @@
   text-align: center;
 }
 
-.aboutContainer h1.aboutSubText:hover{
+h1.aboutRecText{
+  margin-top: 0;
+}
+
+.aboutContainer h1.aboutSubText:hover, .aboutContainer h1.aboutRecText:hover{
   text-decoration: underline;
   cursor: pointer;
 }
@@ -386,10 +390,16 @@ footer.footer .footerWrapper .footerRowTwo h1:hover{
     margin-bottom: 2rem;
   }
 
-  .aboutContainer h1.aboutSubText{
+  .aboutContainer h1.aboutSubText, .aboutContainer h1.aboutRecText{
     margin-top: 2rem;
     font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .aboutContainer h1.aboutRecText{
+    margin-top: 0;
     margin-bottom: 4rem;
+    width: 90%;
   }
 
   .portfolioContainer{
