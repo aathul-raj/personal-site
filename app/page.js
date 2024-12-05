@@ -236,7 +236,7 @@ export default function Home() {
           <div className={styles.footerRowTwo}>
             <h1><a href="mailto:athulrsuresh@gmail.com" target="_blank">athulrsuresh@gmail.com</a></h1>
             <div className={styles.socialContainer}>
-                <a className={styles.iconLeft} href="https://www.instagram.com/aathul.raj/" target="_blank" rel="noopener noreferrer">
+                <a className={styles.iconLeft} href="https://www.instagram.com/aathulrs/" target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon icon={faInstagram} size="2x" />
                 </a>
                 <a className={styles.iconRight} href="https://github.com/aathul-raj" target="_blank" rel="noopener noreferrer">
