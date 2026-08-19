@@ -91,7 +91,7 @@ export default function Home() {
           </div>
           <p className={styles.heroText}>
             I am a computer programmer who specializes in building systems that
-            solve hard problems for lots of people.
+            solve hard problems for many people.
           </p>
         </div>
 
