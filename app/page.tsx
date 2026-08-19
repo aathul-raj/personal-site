@@ -189,7 +189,7 @@ export default function Home() {
             <div className={styles.docItem}>
               <a
                 className={styles.resumeLink}
-                href="https://drive.google.com/file/d/136atZq6yDMaYY81YRecr15Z5bBTnwZaN/view"
+                href="https://drive.google.com/file/d/13EDf4o7hG0PKb0C7nA0pKIAoppO_Dbre/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
               >
